@@ -177,10 +177,8 @@ void tlb_hit(size_t &frame, size_t &page, size_t &tlb_hits, int result)
     {
         if (tlb[i].npage == page)
         {
-            std::cout << "FOUND TLB HIT: " << std::endl;
-            std::cout << "ORIGINAL FRAME: " << frame << std::endl;
+            
             frame = tlb[i].frame_num;
-            std::cout << "NEW FRAME: " << frame << std::endl;
             return;
         }
     }
@@ -191,7 +189,6 @@ void tlb_hit(size_t &frame, size_t &page, size_t &tlb_hits, int result)
 void fifo_replace_page(size_t &frame)
 {
     tlb_remove(0);
-    std::cout << "FIFO REPLACED" << std::endl;
 } // TODO
 
 void tlb_miss(size_t &frame, size_t &page, size_t &tlb_track)
